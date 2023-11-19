@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "cera-round-pro";
+  src: url("../fonts/CeraRoundPro/CeraRoundProDEMO-Regular.otf");
+}
+
+.navbar{
+    font-family: 'cera-round-pro' ,'Arial', sans-serif;
+    font-size: 16px;
+    background: 0 / cover url("../nav-bg.png"), linear-gradient(180deg, #DE689C -2.67%, #FFD596 110.67%);
+}
+
+.column {
+        padding: 15px
+    }
+
