@@ -1,17 +1,18 @@
 import requests
-from django.shortcuts import render,redirect
-from django.http import HttpResponseRedirect, HttpResponse
+from django.shortcuts import render, redirect
 from .forms import CityForm
 from .models import city
-from django.views.generic.edit import DeleteView
-from django.urls import reverse_lazy
+import datetime
 
 
 def index(request):
-    current_weather_url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=1be6324f259e2d5ad5e3f216c7627890'
+    current_weather_url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=0ea449ea42cebe07f77febdfc966759d'
+    forecast_url = 'https://api.openweathermap.org/data/2.5/onecall?lat={}&lon={}&exclude=current,minutely,hourly,alerts&appid=0ea449ea42cebe07f77febdfc966759d'
+
     err_msg = ''
     message = ''
     message_class = ''
+
     if request.method == 'POST':
         form = CityForm(request.POST)
         if form.is_valid():
@@ -42,9 +43,11 @@ def index(request):
     for citi in cities:
 
         r = requests.get(current_weather_url.format(citi)).json()
+        temperature = round(r['main']['temp'])
+
         city_weather = {
             'city': citi.name,
-            'temperature': r['main']['temp'],
+            'temperature': temperature,
             'description': r['weather'][0]['description'],
             'icon': r['weather'][0]['icon'],
         }

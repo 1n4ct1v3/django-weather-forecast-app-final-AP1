@@ -15,82 +15,119 @@
 
 <body>
 <!--Navbar-->
-<nav class="navbar navbar-expand-sm navbar-dark">
-    <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'home' %}">
             <img src="{% static 'weather/log.png' %}" alt="WF">
         </a>
-
-        <ul class="navbar-nav">
-            <li class="nav-item">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
                 <a class="nav-link" href="{% url 'home' %}">Home</a>
-            </li>
-            <li class="nav-item">
+              </li>
+              <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="{% url 'about' %}">About</a>
-            </li>
-            <li class="nav-item">
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="{% url 'contact' %}">Contact</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+              </li>
+            </ul>
+        </div>
+      </div>
+    </nav>
 <!--/.Navbar-->
 
 <br>
-<div class="kepala">
+
+<div class="head">
     <div class="container">
-        <div class="col-lg-12 has-text-centered">
-            <h1>Welcome to Our </h1>
+        <div class="col-lg-12 text-center">
+            <h1>Welcome to the website!</h1>
         </div>
     </div>
 </div>
+
 <br>
-<div class="brand">
-    <div class="container">
-        <div class="row">
-            <div class="column is-offset-4">
-                <a href="{% url 'home' %}"><img src="{% static 'weather/logo.png' %}" alt="logo"></a>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="konten">
+
+<div class="content">
     <div class="container">
         <div class="col-md-12 is-offset-10 text-center">
             <p>
                 This is an application for helping user to check weather. You can check weather in every city around the
                 world.
-                I use django for backend and boostrap for the front end. And also i use API weather map to check weather
-                and i consume
-                the API with python package <b>"requests"</b>.All the source code i put on my <a
-                    href="https://github.com/localhostfotly">github account</a>
+                I used <b>Django</b> for backend and <b>Bootstrap</b> for the frontend. And also I used API of <b>OpenWeatherMap</b> to check weather
+                and I consumed the API with python package <b>requests</b>.
             </p>
         </div>
-        <div class="col-md-12 text-center">
-            <p class="sapport">Supported by :</p>
+
+        <br>
+        <br>
+        <br>
+
+        <section>
+            <div class="head">
+                <div class="container">
+                    <div class="col-lg-12 text-center">
+                        <h1>How to use this app?</h1>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>
+                            1. You have to add a new city for check the weather<br>
+                            2. If the city doesn't exist or city is already in the list the app will be give you some notification<br>
+                            3. You can delete the city from the list
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <br>
+        <br>
+        <br>
+
+        <div class="head">
+            <div class="container">
+                <div class="col-lg-12 text-center">
+                    <h1>Supported by :</h1>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-<br>
-<div class="suport">
+
+<section>
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4 d-flex align-items-center">
                 <a href="https://openweathermap.org/"><img src="{% static 'weather/openWeatherMap.png' %}" width="300"
                                                            alt=""></a>
             </div>
-            <div class="col-md-5">
-                <a href="https://www.djangoproject.com/"><img src="{% static 'weather/django-13-1175187.png' %}"
+            <div class="col-md-5 d-flex align-items-center">
+                <a href="https://www.djangoproject.com/"><img src="{% static 'weather/django-3.png' %}"
                                                               width="320" alt=""></a>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 d-flex align-items-center">
                 <a href="https://getbootstrap.com/"><img
-                        src="{% static 'weather/bootstrap-logo-vector-png-bootstrap-logo-512.jpg' %}" width="300"
+                        src="{% static 'weather/bootstrap.png' %}" width="300"
                         alt=""></a>
             </div>
         </div>
     </div>
-</div>
+</section>
+
+<footer>
+    <p style="margin-bottom: 0;">© 2023 Weather Forecast App</p>
+</footer>
 
 </body>
 </html>

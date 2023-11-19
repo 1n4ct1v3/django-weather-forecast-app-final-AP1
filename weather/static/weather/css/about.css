@@ -3,22 +3,29 @@
   src: url("../fonts/CeraRoundPro/CeraRoundProDEMO-Regular.otf");
 }
 
-.navbar{
+body {
+    font-family: 'cera-round-pro' ,'Arial', sans-serif;
+}
+
+.navbar {
     font-family: 'cera-round-pro' ,'Arial', sans-serif;
     font-size: 16px;
     background: 0 / cover url("../nav-bg.png"), linear-gradient(180deg, #DE689C -2.67%, #FFD596 110.67%);
-
-}
-.kepala{
-    font-family: 'cera-round-pro' ,'Arial', sans-serif;
-    font-size: 25pt;
-    margin-bottom:0.15px
-}
-.konten{
-    font-family: 'cera-round-pro' ,'Arial', sans-serif;
-    font-size: 20pt;
 }
 
-.sapp{
-    font-family: 'cera-round-pro' ,'Arial', sans-serif;
+.navbar-nav .nav-item {
+            margin-left: 120px;
+            margin-right: 150px;
+        }
+
+.content {
+    font-size: 27px;
+}
+
+footer {
+  text-align: center;
+  background: 0 / cover url("../nav-bg.png"), linear-gradient(180deg, #DE689C -2.67%, #FFD596 110.67%);
+  color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }

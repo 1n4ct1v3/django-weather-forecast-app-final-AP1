@@ -15,54 +15,34 @@
 
 <body>
 <!--Navbar-->
-<nav class="navbar navbar-expand-sm navbar-dark">
-    <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'home' %}">
             <img src="{% static 'weather/log.png' %}" alt="WF">
         </a>
-
-        <ul class="navbar-nav">
-            <li class="nav-item">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
                 <a class="nav-link" href="{% url 'home' %}">Home</a>
-            </li>
-            <li class="nav-item">
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="{% url 'about' %}">About</a>
-            </li>
-            <li class="nav-item">
+              </li>
+              <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="{% url 'contact' %}">Contact</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+              </li>
+            </ul>
+        </div>
+      </div>
+    </nav>
 <!--/.Navbar-->
 
-<br>
-<div class="how-to">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <h3>How To Operate this APP</h3>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-md-12">
-                <p>
-                    1. You must added a new city for check the weather <br>
-                    2. If the city doesnt exist or city is exist the app will be give you some notification <br>
-                    3. Delete the each city data in the corner of the city weather information <br>
-                    4. Delete all the data city record before you go.
-                </p>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-md-12">
-                <p>Thank you for using my app </p>
-            </div>
-        </div>
-    </div>
-</div>
+<footer>
+    <p style="margin-bottom: 0;">© 2023 Weather Forecast App</p>
+</footer>
 
 </body>
 </html>
