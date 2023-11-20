@@ -74,10 +74,9 @@
 <br>
 <br>
 
-<!--City containers-->
-<section>
-    <div class="container">
-        {% for city_weather in weather_data %}
+<!-- Weather Container -->
+<div class="container">
+    {% for city_weather in weather_data %}
         <div class="card mb-3 mx-auto" style="max-width: 18rem;">
             <div class="card-body text-center" style="padding: 0">
                 <h2 class="d-flex justify-content-between">
@@ -94,27 +93,31 @@
                 <p class="card-text">{{ city_weather.description }}</p>
             </div>
         </div>
-        {% endfor %}
-    </div>
-</section>
-<!--/.City containers-->
 
-<div class="container">
-    <div class="col-lg-12 text-center">
-        <h3>5-Day Forecasts</h3>
-    </div>
-</div>
-
-<div class="forecast-container">
-    {% for forecast in daily_forecasts %}
-        <div class="forecast">
-            <h3>{{ forecast.day }}</h3>
-            <p>{{ forecast.min_temp }}°C - {{ forecast.max_temp }}°C</p>
-            <p>{{ forecast.description }}</p>
-            <img src="http://openweathermap.org/img/w/{{ forecast.icon }}.png" alt="{{ forecast.description }}">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h3>6-Day Forecasts</h3>
+            </div>
+        </div>
+        <br>
+        <div class="row justify-content-center">
+            {% for day_forecast in daily_forecasts %}
+                <div class="col-md-2">
+                    <div class="card mb-3">
+                        <div class="card-body text-center">
+                            <h5>{{ day_forecast.day }}</h5>
+                            <p>{{ day_forecast.temperature }}°C</p>
+                            <p>{{ day_forecast.description }}</p>
+                            <img src="http://openweathermap.org/img/w/{{ day_forecast.icon }}.png"
+                                alt="{{ day_forecast.description }}" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     {% endfor %}
 </div>
+<!--/.Weather container-->
 
 <footer>
     <p style="margin-bottom: 0;">© 2023 Weather Forecast App</p>
