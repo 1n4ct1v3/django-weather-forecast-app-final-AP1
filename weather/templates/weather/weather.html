@@ -77,47 +77,53 @@
 <!-- Weather Container -->
 <div class="container">
     {% for city_weather in weather_data %}
-        <div class="card mb-3 mx-auto" style="max-width: 18rem;">
-            <div class="card-body text-center" style="padding: 0">
-                <h2 class="d-flex justify-content-between">
-                    <div style="padding-top: 5px; padding-left: 35px">
-                        {{ city_weather.city }} <img src="http://openweathermap.org/img/w/{{ city_weather.icon }}.png" alt="Image" class="img-fluid">
-                    </div>
-                    <div>
-                        <a href="{% url 'delete_city' city_weather.city %}" class="text-danger">
-                            <button type="button" class="btn btn-danger" style="margin-top: -10px">X</button>
-                        </a>
-                    </div>
-                </h2>
-                <h3 class="card-title">{{ city_weather.temperature }} °C</h3>
-                <p class="card-text">{{ city_weather.description }}</p>
+        <div class="city-section">
+            <div class="card mb-3 mx-auto" style="max-width: 18rem;">
+                <div class="card-body text-center" style="padding: 0">
+                    <h2 class="d-flex justify-content-between">
+                        <div style="padding-top: 5px; padding-left: 35px">
+                            {{ city_weather.city }} <img src="http://openweathermap.org/img/w/{{ city_weather.icon }}.png" alt="Image" class="img-fluid">
+                        </div>
+                        <div>
+                            <a href="{% url 'delete_city' city_weather.city %}" class="text-danger">
+                                <button type="button" class="btn btn-danger" style="margin-top: -10px">X</button>
+                            </a>
+                        </div>
+                    </h2>
+                    <h3 class="card-title">{{ city_weather.temperature }} °C</h3>
+                    <p class="card-text">{{ city_weather.description }}</p>
+                </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h3>6-Day Forecasts</h3>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h3>6-Day Forecasts</h3>
+                </div>
             </div>
-        </div>
-        <br>
-        <div class="row justify-content-center">
-            {% for day_forecast in daily_forecasts %}
-                <div class="col-md-2">
-                    <div class="card mb-3">
-                        <div class="card-body text-center">
-                            <h5>{{ day_forecast.day }}</h5>
-                            <p>{{ day_forecast.temperature }}°C</p>
-                            <p>{{ day_forecast.description }}</p>
-                            <img src="http://openweathermap.org/img/w/{{ day_forecast.icon }}.png"
-                                alt="{{ day_forecast.description }}" class="img-fluid">
+            <br>
+            <div class="row justify-content-center">
+                {% for day_forecast in city_weather.daily_forecasts %}
+                    <div class="col-md-2">
+                        <div class="card mb-3">
+                            <div class="card-body text-center">
+                                <h5>{{ day_forecast.day }}</h5>
+                                <p>{{ day_forecast.temperature }}°C</p>
+                                <p>{{ day_forecast.description }}</p>
+                                <img src="http://openweathermap.org/img/w/{{ day_forecast.icon }}.png"
+                                    alt="{{ day_forecast.description }}" class="img-fluid">
+                            </div>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
+        <br>
+        <hr>
+        <br>
         </div>
     {% endfor %}
 </div>
 <!--/.Weather container-->
+
 
 <footer>
     <p style="margin-bottom: 0;">© 2023 Weather Forecast App</p>

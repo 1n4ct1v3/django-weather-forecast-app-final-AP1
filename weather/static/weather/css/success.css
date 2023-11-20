@@ -14,9 +14,21 @@
             margin-right: 150px;
         }
 
+.head_text {
+    color: #DE689C;
+}
+
+.add2 {
+    margin-top: 50px;
+}
+
+.go-back-link {
+    color: #DE689C;
+    font-size: 20px;
+}
+
 footer {
-  margin-top: 300px;
-  position: page;
+  position: absolute;
   bottom: 0;
   width: 100%;
   text-align: center;
@@ -24,39 +36,4 @@ footer {
   color: white;
   padding-top: 5px;
   padding-bottom: 5px;
-}
-
-.input {
-  border: 1px solid rgb(192, 192, 192);
-  border-radius: 2px;
-  box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.05);
-  height: 40px;
-}
-
-.input::placeholder {
-  font-size: 16px;
-}
-
-.add-city {
-  border-color: #212529;;
-  margin-left: -1px;
-  height: 40px;
-}
-
-/**/
-
-.forecast-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.forecast {
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  margin: 10px;
-  width: calc(100% / 5 - 20px);
-  box-sizing: border-box;
 }

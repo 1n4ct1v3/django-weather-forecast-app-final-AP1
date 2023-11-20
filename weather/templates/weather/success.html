@@ -10,7 +10,7 @@
     {% load bootstrap5 %}
     {% bootstrap_css %}
     {% bootstrap_javascript %}
-    <link rel="stylesheet" href="{% static 'weather/css/contact.css' %}">
+    <link rel="stylesheet" href="{% static 'weather/css/success.css' %}">
 </head>
 
 <body>
@@ -41,37 +41,12 @@
 <!--/.Navbar-->
 
 
-<!-- Form Section -->
-<div class="container contact-form add2">
-    <form method="post">
-        <h3>Drop Us a Message</h3>
-        {% csrf_token %}
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    {{ form.name }}
-                </div>
-                <div class="form-group">
-                    {{ form.email }}
-                </div>
-                <div class="form-group">
-                    {{ form.phone }}
-                </div>
-                <div class="form-group">
-                    <input type="submit" name="btnSubmit" class="btnContact" value="Send Message" />
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="form-group">
-                    {{ form.subject }}
-                </div>
-                <div class="form-group">
-                    {{ form.message }}
-                </div>
-            </div>
-        </div>
-    </form>
+<div class="container text-center add2">
+    <h2 class="head_text">Form Submitted Successfully!</h2>
+    <br>
+    <a href="{% url 'home' %}" class="go-back-link">
+        <img src="{% static 'weather/arrow-return-left.svg' %}" alt="s-i"> Go back
+    </a>
 </div>
 
 

@@ -1,7 +1,7 @@
 import requests
 from django.shortcuts import render, redirect
-from .forms import CityForm
-from .models import city
+from .forms import CityForm, ContactForm
+from .models import city, ContactMessage
 import datetime
 from collections import defaultdict
 
@@ -43,6 +43,7 @@ def fetch_weather_and_forecast(city, api_key, current_weather_url, forecast_url)
 
 
 def index(request):
+    api_key = '0ea449ea42cebe07f77febdfc966759d'
     current_weather_url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=0ea449ea42cebe07f77febdfc966759d'
     forecast_url = 'https://api.openweathermap.org/data/2.5/forecast?lat={}&lon={}&units=metric&appid=0ea449ea42cebe07f77febdfc966759d'
 
@@ -70,17 +71,14 @@ def index(request):
     cities = city.objects.all()
 
     weather_data = []
-    daily_forecasts = []
 
     for citi in cities:
-        weather, forecasts = fetch_weather_and_forecast(citi.name, '0ea449ea42cebe07f77febdfc966759d',
-                                                        current_weather_url, forecast_url)
+        weather, forecasts = fetch_weather_and_forecast(citi.name, api_key, current_weather_url, forecast_url)
+        weather['daily_forecasts'] = forecasts  # Add daily_forecasts to weather_data
         weather_data.append(weather)
-        daily_forecasts.extend(forecasts)
 
     context = {
         'weather_data': weather_data,
-        'daily_forecasts': daily_forecasts,
         'form': form,
         'message': message,
         'message_class': message_class
@@ -94,7 +92,24 @@ def about(request):
 
 
 def contact(request):
-    return render(request, 'weather/contact.html')
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            ContactMessage.objects.create(
+                name=form.cleaned_data['name'],
+                email=form.cleaned_data['email'],
+                phone=form.cleaned_data['phone'],
+                subject=form.cleaned_data['subject'],
+                message=form.cleaned_data['message']
+            )
+            return redirect('success')
+    else:
+        form = ContactForm()
+    return render(request, 'weather/contact.html', {'form': form})
+
+
+def success(request):
+    return render(request, 'weather/success.html')
 
 
 def delete_city(request, city_name):
