@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/django-weather-app-master.iml" filepath="$PROJECT_DIR$/.idea/django-weather-app-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/django-weather-forecast-app-final-AP1.iml" filepath="$PROJECT_DIR$/.idea/django-weather-forecast-app-final-AP1.iml" />
     </modules>
   </component>
 </project>
