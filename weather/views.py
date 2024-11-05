@@ -43,9 +43,9 @@ def fetch_weather_and_forecast(city, api_key, current_weather_url, forecast_url)
 
 
 def index(request):
-    api_key = '0ea449ea42cebe07f77febdfc966759d'
-    current_weather_url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=0ea449ea42cebe07f77febdfc966759d'
-    forecast_url = 'https://api.openweathermap.org/data/2.5/forecast?lat={}&lon={}&units=metric&appid=0ea449ea42cebe07f77febdfc966759d'
+    api_key = ''
+    current_weather_url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid='
+    forecast_url = 'https://api.openweathermap.org/data/2.5/forecast?lat={}&lon={}&units=metric&appid='
 
     err_msg = ''
     message = ''
